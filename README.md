@@ -9,7 +9,7 @@ This codebase provides:
 ## Contents
 1. [Introduction](#introduction)
 2. [Environment Setup](#environment-setup)
-3. [Design promoter sequence](#Design-promoter-sequence)
+3. [Design Promoter Sequence](#design-promoter-sequence)
 4. [Bibtex](#bibtex)
 ## Introduction <a name="introduction">
 We introduced an AI-aided promoter design framework, DeepSEED, that employs both experts’ knowledge and deep learning together to efficiently design synthetic promoters of diverse desirable functions. DeepSEED incorporates the user-defined cis-regulatory sequences as ‘seed’ and generates flanking sequences that match the ‘seed’. We showed that DeepSEED could automatically capture a variety of weak patterns like k-mer frequencies and DNA shape features from active promoters in the training set, and efficiently optimize the flanking sequences in synthetic promoters to better match these properties.
@@ -113,7 +113,7 @@ We validated the effectiveness of this framework for diverse synthetic promoter 
 
 6. Run deepseed with python and enjoy it with following steps:
 
-## Design promoter sequence <a name="Design-promoter-sequence">
+## Design Promoter Sequence <a name="design-promoter-sequence">
 We take design of 3-lacO IPTG-inducible promoters in *E. coli* as an example, to illustrate how to train the DeepSEED model and design the promoter sequences
 
 ### 1. Training the conditional GANs
