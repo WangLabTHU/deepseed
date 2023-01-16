@@ -63,13 +63,13 @@ We validated the effectiveness of this framework for diverse synthetic promoter 
     .\Scripts\deactivate.bat
     ```
 
-2. Install [Git](https://git-scm.com/), this step is optional if you does not install CellTracker by git clone. Clone the source codes with git. 
+2. Install [Git](https://git-scm.com/), this step is optional if you does not install DeepSEED by git clone. Clone the source codes with git. 
     ```
     git clone https://github.com/WangLabTHU/deepseed.git
     ```
 3. or, download the source codes and extract files and put it in the virtual environment directory you defined. 
 
-4. after 2/3, the directory of CellTracker should have the following structure:
+4. after 2/3, the directory of DeepSEED should have the following structure:
     
     ```
     DeepSEED
@@ -84,9 +84,9 @@ We validated the effectiveness of this framework for diverse synthetic promoter 
                     |...
             |-------Optimizer
                     |...
-            |-------utlis
+            |-------(optional)utlis
                     |...
-            |-------design_demo
+            |-------(optional)design_demo
             |-------
             |...
         |...
