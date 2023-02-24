@@ -151,6 +151,6 @@ Please consider citing our paper in your publications if the project helps your 
 ```
 
 ## License
-For academic use, this project is licensed under the GNU Lesser General Public License v3.0 - see the LICENSE file for details. For commercial use, please contact the authors. 
+For academic use, this project is licensed under the MIT License - see the LICENSE file for details For commercial use, please contact the authors. 
 
 
