@@ -7,7 +7,7 @@ import pandas as pd
 
 
 def main():
-    f = open("/home/hwxu/promoterPolisher/ecoli_mpra_3_laco/experiment_2022_03_22/input_promoters.txt")
+    f = open("../data/input_promoters.txt")
     lines = f.readlines()
     polish_seq, original_seq, seq_name = [], [], collections.OrderedDict()
     size_prop = 5*1024
