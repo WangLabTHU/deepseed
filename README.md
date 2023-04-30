@@ -146,7 +146,7 @@ Please consider citing our paper in your publications if the project helps your 
   author={Pengcheng Zhang, Haochen Wang, Hanwen Xu, Lei Wei, Zhirui Hu, Xiaowo Wang
 },
   journal={biorkiv},
-  year={2023
+  year={2023}
 }
 ```
 
