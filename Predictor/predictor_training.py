@@ -117,7 +117,12 @@ class Seq2ScalarTraining:
 
 
 def main():
-    os.mkdir('results')
+    if not os.path.exists('results'):
+        os.mkdir('results')
+    if not os.path.exists('results/model/'):
+        os.mkdir('results/model/')
+    if not os.path.exists('results/scatter_fig/'):
+        os.mkdir('results/scatter_fig')
     analysis = Seq2ScalarTraining()
     analysis.training()
 
