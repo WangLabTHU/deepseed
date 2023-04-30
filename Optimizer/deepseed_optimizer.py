@@ -7,6 +7,8 @@ import pandas as pd
 
 
 def main():
+    if not os.path.exists('results'):
+        os.path.mkdir('results')
     f = open("../data/input_promoters.txt")
     lines = f.readlines()
     polish_seq, original_seq, seq_name = [], [], collections.OrderedDict()
