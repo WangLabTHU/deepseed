@@ -4,6 +4,7 @@ from wgan_attn import *
 import torchvision.transforms as transforms
 import collections
 import pandas as pd
+import os 
 
 
 def main():
