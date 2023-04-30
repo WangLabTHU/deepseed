@@ -11,6 +11,7 @@ import collections
 import pandas as pd
 from utils import EarlyStopping
 from tqdm import tqdm
+import os
 
 
 class Seq2ScalarTraining:
@@ -116,6 +117,7 @@ class Seq2ScalarTraining:
 
 
 def main():
+    os.mkdir('results')
     analysis = Seq2ScalarTraining()
     analysis.training()
 
