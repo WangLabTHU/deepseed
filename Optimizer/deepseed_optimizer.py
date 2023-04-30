@@ -10,7 +10,7 @@ def main():
     f = open("../data/input_promoters.txt")
     lines = f.readlines()
     polish_seq, original_seq, seq_name = [], [], collections.OrderedDict()
-    size_prop = 5*1024
+    size_prop = 5*64 #5*1024 if you have enough gpu space
     max_iter = 100
     gen_num = 5
     similarity_penalty = 0.85
