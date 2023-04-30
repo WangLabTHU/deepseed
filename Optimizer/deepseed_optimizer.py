@@ -4,12 +4,12 @@ from wgan_attn import *
 import torchvision.transforms as transforms
 import collections
 import pandas as pd
-import os 
+import os
 
 
 def main():
     if not os.path.exists('results'):
-        os.path.mkdir('results')
+        os.mkdir('results')
     f = open("../data/input_promoters.txt")
     lines = f.readlines()
     polish_seq, original_seq, seq_name = [], [], collections.OrderedDict()
@@ -29,7 +29,7 @@ def main():
         else:
             names = (line.split('>')[1].strip())
     predictor_path = "../Predictor/results/model/165_mpra_expr_denselstm.pth"
-    generator_path = "../Generator/check_points/ecoli_mpra_3_laco_net_G_8899.pth"
+    generator_path = "../Generator/check_points/ecoli_mpra_3_laco_net_G_399.pth"
     op = optimizer_module.optimizer_fix_flank(predictor_path=predictor_path,
                                              generator_path=generator_path,
                                              size_pop=size_prop,
