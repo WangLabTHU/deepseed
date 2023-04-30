@@ -145,8 +145,8 @@ Please consider citing our paper in your publications if the project helps your 
   title={Deep flanking sequences engineering for efficient promoter design},
   author={Pengcheng Zhang, Haochen Wang, Hanwen Xu, Lei Wei, Zhirui Hu, Xiaowo Wang
 },
-  journal={},
-  year={2022
+  journal={biorkiv},
+  year={2023
 }
 ```
 
