@@ -66,7 +66,7 @@ sacrebleu==1.5.1
 sacremoses==0.0.45
 scikit-image==0.19.2
 scikit-learn==0.24.2
-scikit-opt==0.6.5
+scikit-opt==0.6.6
 scipy==1.7.0
 seaborn==0.11.1
 six==1.16.0
