@@ -26,7 +26,7 @@ We validated the effectiveness of this framework for diverse synthetic promoter 
 - MAC OS, Linux or Windows.
 - Python 3.5+.
 - PyTorch 1.7.1
-- CUDA 1.10.0  if you need train deep learning model with gpu.
+- CUDA 10.1  if you need train deep learning model with gpu.
 
 **Steps of using DeepSEED:** 
 
@@ -84,9 +84,6 @@ We validated the effectiveness of this framework for diverse synthetic promoter 
                     |...
             |-------Optimizer
                     |...
-            |-------(optional)utlis
-                    |...
-            |-------(optional)design_demo
             |-------
             |...
         |...
@@ -111,26 +108,29 @@ We validated the effectiveness of this framework for diverse synthetic promoter 
     pip install torch==1.7.1 torchvision==0.8.2 -f https://download.pytorch.org/whl/torch_stable.html
     ```
 
+The typical install time on a desktop computer depends on your download speed. Suppose your computer has 1MB/s when downloading python package, it will take about 1 hour to install all the necessary packages.
+
+
 6. Run deepseed with python and enjoy it with following steps:
 
 ## Design Promoter Sequence <a name="design-promoter-sequence">
 We take design of 3-lacO IPTG-inducible promoters in *E. coli* as an example, to illustrate how to train the DeepSEED model and design the promoter sequences
 
-### 1. Training the conditional GANs
+### 1. Training the conditional GANs (Expected run time on GeForce GTX 1080Ti: 10 hours)
     ```
     cd Generator
     python cGAN_training.py
     ```
     
-### 2. Training the predictor
+### 2. Training the predictor (Expected run time on GeForce GTX 1080Ti: 0.5 hour)
     ```
-    cd Predictor
+    cd ../Predictor
     python predictor_training.py
     ```
 
-### 3. Design the promoter sequences with optimizer
+### 3. Design the promoter sequences with optimizer (Expected run time on GeForce GTX 1080Ti: 24 hours)
     ```
-    cd Optimizer
+    cd ../Optimizer
     python deepseed_optimizer.py
     ```
 ### 4. Check the synthetic promoter sequences!
