@@ -91,7 +91,7 @@ We validated the effectiveness of this framework for diverse synthetic promoter 
 
 5. After the extraction, download all dependencies with the following commend.
     ```
-    cd deepseed
+    cd deepseed (or cd deepseed-main)
     pip install -r requirements.txt
     ```
     To boost download speeds, you could setup pip mirror such as
