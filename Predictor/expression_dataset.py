@@ -20,7 +20,7 @@ class Dataset(object):
 
 class SeqDataset(Dataset):
 
-    def __init__(self, path='../../deepinfomax/data/ecoli_expr_wy.xlsx', isTrain=True, isGpu=True):
+    def __init__(self, path='../../deepinfomax/data/ecoli_expr_wy.xlsx', isTrain=True, isGpu=True, split_r=0.889):
         self.path = path
         files = pd.read_csv(self.path)
         seqs = list(files['realB'])
@@ -31,7 +31,7 @@ class SeqDataset(Dataset):
         self.pSeq = []
         self.expr = []
         self.isTrain = isTrain
-        self.split_r = 0.9
+        self.split_r = split_r
         self.isGpu = isGpu
         maxE = 1
         minE = 0

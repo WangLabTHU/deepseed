@@ -11,7 +11,6 @@ import collections
 import pandas as pd
 from utils import EarlyStopping
 from tqdm import tqdm
-import os
 
 
 class Seq2ScalarTraining:
@@ -27,7 +26,8 @@ class Seq2ScalarTraining:
         self.name = 'expr_' + self.mode
         self.symb = '165_mpra'
         self.dataset_train = DataLoader(dataset=SeqDataset(path='../data/ecoli_mpra_expr.csv', isTrain=True, isGpu=self.gpu), batch_size=self.batch_size, shuffle=True)
-        self.dataset_test = DataLoader(dataset=SeqDataset(path='../data/ecoli_mpra_expr.csv', isTrain=False, isGpu=self.gpu), batch_size=self.batch_size, shuffle=False)
+        self.dataset_valid = DataLoader(dataset=SeqDataset(path='../data/ecoli_mpra_expr.csv', isTrain=False, isGpu=self.gpu), batch_size=self.batch_size, shuffle=False)
+        self.dataset_test = DataLoader(dataset=SeqDataset(path='../data/ecoli_mpra_expr_test.csv', isTrain=True, isGpu=self.gpu, split_r=1.0), batch_size=self.batch_size, shuffle=False)
         self.model_ratio = Seq2Scalar(input_nc=4, seqL=self.seqL, mode=self.mode)
         self.save_path = 'results/model/'
         if self.gpu:
@@ -65,7 +65,7 @@ class Seq2ScalarTraining:
             test_real_expr = []
             self.model_ratio.eval()
             print('Test iters')
-            for testLoader in tqdm(self.dataset_test):
+            for testLoader in tqdm(self.dataset_valid):
                 test_data, test_y = testLoader['x'], testLoader['z']
                 predict_y = self.model_ratio(test_data)
                 predict_y = predict_y.detach()
@@ -117,12 +117,6 @@ class Seq2ScalarTraining:
 
 
 def main():
-    if not os.path.exists('results'):
-        os.mkdir('results')
-    if not os.path.exists('results/model/'):
-        os.mkdir('results/model/')
-    if not os.path.exists('results/scatter_fig/'):
-        os.mkdir('results/scatter_fig')
     analysis = Seq2ScalarTraining()
     analysis.training()
 
