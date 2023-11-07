@@ -7,7 +7,6 @@ import random
 from torch.utils.data import DataLoader
 import collections
 import pandas as pd
-import predictmodel
 
 
 class Dataset(object):
@@ -27,7 +26,7 @@ class predictDataset(Dataset):
     def __init__(self, path='../results/case2_results.csv', isGpu=True):
         self.path = path
         df = pd.read_csv(path)
-        seqs = list(df['fakeB'])
+        seqs = list(df['realB'])
         nrows = len(seqs)
         index = list(np.arange(nrows))
         self.pSeq = []
@@ -71,36 +70,27 @@ def decode_oneHot(seq):
 
 
 def main():
-    model_real_path = 'results/model/predict_real.pth'
-    model_expr_path = 'results/model/predict_expr_densenet.pth'
-    dataset_input = DataLoader(dataset=predictDataset(path='../case8_consituent/case8_constituent_seqsresults.csv', isGpu=True), batch_size=256,
+    model_expr_path = 'results/model/165_mpra_expr_denselstm.pth'
+    dataset_input = DataLoader(dataset=predictDataset(path='../data/ecoli_mpra_expr_test.csv', isGpu=True), batch_size=256,
                               shuffle=False)
-    model_real = torch.load(model_real_path)
     model_expr = torch.load(model_expr_path)
     pSeqList = []
-    isRealList = []
     exprList = []
     for k, inputLoader in enumerate(dataset_input):
-        isReal = model_real(inputLoader['X'])
-        _, isReal = isReal.max(1)
         expr = model_expr(inputLoader['X'])
-        isReal = isReal.detach()
-        isReal = isReal.cpu().float().numpy()
         seqs = inputLoader['X'].detach()
         seqs = seqs.cpu().float().numpy()
         expr = expr.detach()
         expr = expr.cpu().float().numpy()
-        for i in range(np.size(isReal)):
-            isRealList.append(isReal[i])
+        for i in range(np.size(expr)):
             tempSeq = seqs[i, :, :]
             pSeqList.append(decode_oneHot(tempSeq))
             exprList.append(2**(expr[i]))
     predictResults = collections.OrderedDict()
     predictResults['seq'] = pSeqList
-    predictResults['isReal'] = isRealList
     predictResults['expr'] = exprList
     predictResults = pd.DataFrame(predictResults)
-    predictResults.to_csv('../case8_consituent/case8_constituent_seqs_predict_densenet.csv', index=False)
+    predictResults.to_csv('../data/ecoli_mpra_expr_test_predict_densenet.csv', index=False)
 
 
 if __name__ == '__main__':
