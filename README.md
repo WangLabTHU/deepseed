@@ -155,4 +155,5 @@ For academic use, this project is licensed under the MIT License - see the LICEN
 
 ## Reference
 [1] Isola, Phillip, et al. "Image-to-image translation with conditional adversarial networks." Proceedings of the IEEE conference on computer vision and pattern recognition. 2017.
+
 Parts of the code have been modified from the Pix2pix, which could be found at https://github.com/phillipi/pix2pix.
