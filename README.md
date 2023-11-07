@@ -24,9 +24,9 @@ We validated the effectiveness of this framework for diverse synthetic promoter 
 ## Environment Setup <a name="environment-setup">
 **Env Requirements:** 
 - MAC OS, Linux or Windows.
-- Python 3.5+.
+- Python 3.7+.
 - PyTorch 1.7.1
-- CUDA 10.1  if you need train deep learning model with gpu.
+- CUDA 11.2  if you need train deep learning model with gpu.
 
 **Steps of using DeepSEED:** 
 
