@@ -153,4 +153,4 @@ Please consider citing our paper in your publications if the project helps your 
 ## License
 For academic use, this project is licensed under the MIT License - see the LICENSE file for details For commercial use, please contact the authors. 
 
-
+Parts of the code have been modified from the Pix2pix, which could be found at https://github.com/phillipi/pix2pix.
