@@ -190,8 +190,8 @@ class WGAN():
 def main():
     data_name = 'ecoli_mpra_3_laco'
     seqL = 165
-    train_data, test_data = DataLoader(LoadData(is_train=True, path='../data/{}.csv'.format(data_name), split_r=1),
-                                       batch_size=32, shuffle=True), DataLoader(LoadData(is_train=True, path='../data/{}.csv'.format(data_name), split_r=1), batch_size=32)
+    train_data, test_data = DataLoader(LoadData(is_train=True, path='../data/{}.csv'.format(data_name), split_r=0.8),
+                                       batch_size=32, shuffle=True), DataLoader(LoadData(is_train=False, path='../data/{}.csv'.format(data_name), split_r=0.2), batch_size=32)
     train_data = get_infinite_batches(train_data)
     logger = utils.get_logger(log_path='cache/training_log/', name=data_name)
     n_critics = 5
